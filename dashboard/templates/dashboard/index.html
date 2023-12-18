@@ -1,0 +1,118 @@
+{% extends "dashboard/base.html" %}
+
+{% block content %}
+{% load static %}
+
+
+
+<section class="p-5 bg-dark text-sm-start text-center">
+  <div class="container">
+      <div class="row">
+            <div class="col-md-6">
+                  <div class="pt-md-4">
+                        <h1 class="text-light align-items-center justify-content-between">Welcome to <span class="text-warning fw-bold">QARA</span> School Management System</h1>
+                        <br>
+                        <p class="text-light align-items-start justify-content-between">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an</p>
+                        <br>
+                        <buttoon class="btn btn-primary p-2 rounded">Login as student</buttoon>
+                        <buttoon class="btn btn-secondary p-2 rounded active">Login as teacher</buttoon>
+                        <div class="mb-3">
+                          <br>
+                          <br>
+                          <input type="text" class="form-control w-50" placeholder="Search" id="search"/>
+                        </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div>
+                        <img class="img-fluid d-none d-md-block" src="{% static 'images/schools.svg' %}">
+                  </div>
+            </div>
+      </div>
+  </div>
+
+</section>
+
+
+<section class="p-5">
+  <div class="container">
+      <div class="row text-center gy-4">
+
+
+        <div class="col-md">
+          <div class="card">
+            <div class="card-header">
+              <div class="h3">List of schools</div>
+            </div>
+            {% for schools in school %}
+            <div class="card-body">
+              <a href="{% url 'single-school' schools.slug%}" class="card-text my-0">{{schools.name}}</a>
+            </div>
+            {% endfor %}
+            <div class="card-footer">
+              <a href="{% url 'all-schools'%}" class="btn text-dark btncustom">View all schools</a>
+            </div>
+          </div>
+        </div>
+
+
+
+        <div class="col-md">
+          <div class="card">
+            <div class="card-header">
+              <div class="h1"><i class="bi bi-laptop"></i></div>
+            </div>
+            <div class="card-body">
+              <h4 class="card-title">{{ school_number }} total schools</h4>
+              <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea accusamus maxime minima vel, officia deleniti.</p>
+            </div>
+            <div class="card-footer">
+              <a href="#" class="btn text-light btncustom">Read More</a>
+            </div>
+          </div>
+        </div>
+
+      <!--Second card-->
+      <div class="col-md">
+        <div class="card">
+          <div class="card-header">
+            <div class="h1"><i class="bi bi-person-square"></i></div>
+          </div>
+          <div class="card-body">
+            <h4 class="card-title">{{ student_number }} total students</h4>
+            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea accusamus maxime minima vel, officia deleniti.</p>
+          </div>
+          <div class="card-footer">
+            <a href="#" class="btn text-light btncustom">Read More</a>
+          </div>
+        </div>
+      </div>
+
+      <!--Third card-->
+      <div class="col-md">
+        <div class="card">
+          <div class="card-header">
+            <div class="h1"><i class="bi bi-people"></i></div>
+          </div>
+          <div class="card-body">
+            <h4 class="card-title">{{ teacher_number }} total teachers</h4>
+            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea accusamus maxime minima vel, officia deleniti.</p>
+          </div>
+          <div class="card-footer">
+            <a href="#" class="btn text-light btncustom">Read More</a>
+          </div>
+        </div>
+      </div>
+
+
+
+      
+      
+    </div>
+  </div>
+</section>
+
+
+
+
+{% endblock content %}

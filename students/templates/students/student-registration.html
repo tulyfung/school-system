@@ -1,0 +1,17 @@
+{% extends "dashboard/base.html" %}
+
+{% block content %}
+
+  <div class="row">
+    <div class="col-6 mx-auto py-5">
+      <h3>Student Registration</h3>
+      <hr>
+      <form action="" method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button class="btn btn-primary p-2 w-100" type="submit">Register Student</button>
+      </form>
+    </div>
+  </div>
+
+{% endblock %}
